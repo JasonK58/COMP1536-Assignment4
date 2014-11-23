@@ -31,20 +31,6 @@ function drawGround() {
 }
 
 function drawCloud() {
-	ctx.beginPath();
-	ctx.moveTo(150, 50);
-	ctx.bezierCurveTo(100, 100, 50, 75, 200, 100);
-	ctx.lineWidth=1.5;
-	ctx.stroke();
-	ctx.closePath();
-     // context.lineWidth = 5;
-     // context.fillStyle = '#8ED6FF';
-     // context.fill();
-     // context.strokeStyle = '#0000ff';
-     // context.stroke();
-}
-
-function drawCloud() {
   ctx.beginPath();
   ctx.moveTo(219, 44);
   ctx.bezierCurveTo(229, 11, 287, 62, 243, 85);
