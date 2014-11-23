@@ -29,3 +29,30 @@ function drawGround() {
     ctx.fill();
 	ctx.closePath();
 }
+
+function drawCloud() {
+	ctx.beginPath();
+	ctx.moveTo(150, 50);
+	ctx.bezierCurveTo(100, 100, 50, 75, 200, 100);
+	ctx.lineWidth=1.5;
+	ctx.stroke();
+	ctx.closePath();
+     // context.lineWidth = 5;
+     // context.fillStyle = '#8ED6FF';
+     // context.fill();
+     // context.strokeStyle = '#0000ff';
+     // context.stroke();
+}
+
+function drawCloud() {
+  ctx.beginPath();
+  ctx.moveTo(219, 44);
+  ctx.bezierCurveTo(229, 11, 287, 62, 243, 85);
+  ctx.bezierCurveTo(252, 110, 201, 118, 196, 90);
+  ctx.bezierCurveTo(181, 131, 125, 97, 144, 82);
+  ctx.bezierCurveTo(108, 43, 182, 21, 171, 43);
+  ctx.bezierCurveTo(173, 9, 228, 23, 220, 45);
+  ctx.fillStyle = "#F5F5F5";
+  ctx.fill();
+  ctx.closePath();
+}
