@@ -19,5 +19,13 @@ function drawSun() {
 	ctx.fillStyle="black";
 	ctx.lineWidth=1.5;
 	ctx.stroke();
-	
+	ctx.closePath();
+}
+
+function drawGround() {
+	ctx.beginPath();
+	ctx.rect(0, 200, 300, 150);
+    ctx.fillStyle = "green";
+    ctx.fill();
+	ctx.closePath();
 }
