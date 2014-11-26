@@ -4,22 +4,23 @@ var ctx = canvas.getContext("2d");
 var width = myCanvas.width;
 var height = myCanvas.height;
 
-//To move the sun, change the centerX and CenterY values.
-//To change the size of the sun, change the radius.
-function drawSun() {
-	var centerX = 50;
-	var centerY = 50;
-	var radius = 30;
-	var startAngle = 0;
-	var endAngle = 2 * Math.PI;
+function drawSky() {
+ ctx.beginPath();
+ ctx.rect(0, 0, 300, 250);
+ ctx.fillStyle="#E0EEEE";
+ ctx.fill();
+ ctx.closePath();
+ }
+
+function drawSun(){
+	var grade = ctx.createRadialGradient(50,50,40,50,50,0);
+	grade.addColorStop(0,"#E0EEEE");
+	grade.addColorStop(1,"yellow");
+	ctx.fillStyle= grade;
 	ctx.beginPath();
-	ctx.arc(centerX, centerY, radius, startAngle, endAngle);
-	ctx.fillStyle="yellow";
-	ctx.fill();
-	ctx.fillStyle="black";
-	ctx.lineWidth=1.5;
-	ctx.stroke();
+	ctx.arc(50, 50, 40, 0, 2 * Math.PI);
 	ctx.closePath();
+	ctx.fill();
 }
 
 function drawGround() {
@@ -28,19 +29,6 @@ function drawGround() {
     ctx.fillStyle = "green";
     ctx.fill();
 	ctx.closePath();
-}
-
-function drawCloud() {
-  ctx.beginPath();
-  ctx.moveTo(219, 44);
-  ctx.bezierCurveTo(229, 11, 287, 62, 243, 85);
-  ctx.bezierCurveTo(252, 110, 201, 118, 196, 90);
-  ctx.bezierCurveTo(181, 131, 125, 97, 144, 82);
-  ctx.bezierCurveTo(108, 43, 182, 21, 171, 43);
-  ctx.bezierCurveTo(173, 9, 228, 23, 220, 45);
-  ctx.fillStyle = "#F5F5F5";
-  ctx.fill();
-  ctx.closePath();
 }
 
 function drawHouse() {
@@ -136,4 +124,26 @@ function drawHouse() {
 	ctx.closePath();
 	ctx.lineWidth=0.5;
 	ctx.stroke();
+	
+	//Front window
+	ctx.beginPath();
+	ctx.rect(124, 200, 30, 30);
+	ctx.closePath();
+	ctx.lineWidth=0.5;
+	ctx.stroke();
+	ctx.fillStyle="#FFFF33";
+	ctx.fill();
+	ctx.beginPath();
+	ctx.moveTo(138, 200);
+	ctx.lineTo(138, 230);
+	ctx.lineWidth = 0.5;
+	ctx.stroke();
+	ctx.closePath();
+	ctx.beginPath();
+	ctx.moveTo(124, 216);
+	ctx.lineTo(154, 216);
+	ctx.lineWidth = 0.5;
+	ctx.stroke();
+	ctx.closePath();
+	
 }
