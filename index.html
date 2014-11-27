@@ -2,13 +2,59 @@
 <html>
 <head>
 	<meta charset=utf-8 />
-	<title>Animated House</title>
+	<title>Kolenosky, Jason & Shukrat Daniyaer</title>
+	<link rel="stylesheet" type="text/css" href="stylesheet/stylesheet.css" />
 </head>
 <body>
+	<header>
+		<h1>Animated House</h1>
+	</header>
 	<div style="text-align: center;">
 		<canvas id="myCanvas" width="300" height="300" style="border: 1px solid black;"></canvas>
 	</div>
-	<canvas id="myCanvas" width="300" height="300"></canvas>
+	<div id="body">
+		<!--name, student#, email, set
+		what you completed
+		what you didn't complete
+		challenges-->
+		<table>
+			<tr>
+				<td>Name:&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				<td id="right">Jason Kolenosky</td>
+			</tr>
+			<tr>
+				<td>Student #:&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				<td id="right">A00911464</td>
+			</tr>
+			<tr>
+				<td>E-mail:&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				<td><A HREF="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#74;&#97;&#115;&#111;&#110;&#75;&#53;&#56;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">JasonK58@gmail.com</A></td>
+			</tr>
+			<tr>
+				<td colspan=2><hr /></td>
+			</tr>
+			<tr>
+				<td>Name:&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				<td id="right">Daniyaer Shukrat</td>
+			</tr>
+			<tr>
+				<td>Student #:&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				<td id="right">blank</td>
+			</tr>
+			<tr>
+				<td>E-mail:&nbsp;&nbsp;&nbsp;&nbsp;</td>
+				<td>blank</td>
+			</tr>
+		</table>
+		<hr />
+		<p>Completed: 100%</p>
+		<p>Tasks Not Completed: none</p>
+		<p>Major Challenges:
+			<ul>
+				<li>TBD</li>
+			</ul>
+		</p>
+	</div>
 	<script type="text/javascript" src="scripts/house.js"></script>
 	<script>
 		drawSky();
