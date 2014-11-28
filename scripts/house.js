@@ -182,7 +182,7 @@ function drawHouse() {
 
 function render() {
     var len = parts.length;
-    ctx.clearRect(0, 0, myCanvas.width, myCanvas.height);
+    ctx.clearRect(0, 0, width, height);
 	drawSky();
 	drawGround();
 	drawSun();
