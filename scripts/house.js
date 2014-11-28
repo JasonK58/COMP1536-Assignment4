@@ -5,6 +5,7 @@ var width = myCanvas.width;
 var height = myCanvas.height;
 
 function smoke(x, y, index) {
+//smoke properties
     this.x = x;
     this.y = y;
 
@@ -20,8 +21,8 @@ function smoke(x, y, index) {
     this.velY = -1 - (Math.random()*0.5);
     this.velX = Math.floor(Math.random() * (-6) + 3) / 10;
 }
-
 var parts = [],
+//array for smoke
     minSpawnTime = 100,
     lastTime = new Date().getTime(),
     maxLifeTime = Math.min(5000, (myCanvas.height/(1.5*60)*1000)),
@@ -29,7 +30,9 @@ var parts = [],
     emitterY = 70,
     smokeImage = new Image();
 	
+	
 	function spawn() {
+	//generating smoke
     if (new Date().getTime() > lastTime + minSpawnTime) {
         lastTime = new Date().getTime();
         parts.push(new smoke(emitterX, emitterY));
@@ -37,6 +40,7 @@ var parts = [],
 }
 
 function drawSky() {
+//sky
  ctx.beginPath();
  ctx.rect(0, 0, 300, 250);
  ctx.fillStyle="#E0EEEE";
@@ -45,6 +49,7 @@ function drawSky() {
  }
 
 function drawSun(){
+//sun
 	var grade = ctx.createRadialGradient(50,50,40,50,50,0);
 	grade.addColorStop(0,"#E0EEEE");
 	grade.addColorStop(1,"yellow");
@@ -181,6 +186,7 @@ function drawHouse() {
 }
 
 function render() {
+//creating canvas images
     var len = parts.length;
     ctx.clearRect(0, 0, width, height);
 	drawSky();
@@ -209,6 +215,7 @@ function render() {
 }
 
 smoke.prototype.update = function () {
+	//calculation of smoke generator
     this.lifeTime = new Date().getTime() - this.startLife;
     this.angle += 0.2;
     
@@ -222,7 +229,7 @@ smoke.prototype.update = function () {
     this.x += this.velX;
     this.y += this.velY;
 }
-smokeImage.src = "images/smoke.png";
+
 smokeImage.onload = function () {
     render();
 }
