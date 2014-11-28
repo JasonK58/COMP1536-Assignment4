@@ -10,12 +10,12 @@ var timesRun = 0;
 var checker = true;
 
 function drawSky() {
-//sky
- ctx.beginPath();
- ctx.rect(0, 0, 300, 250);
- ctx.fillStyle="#E0EEEE";
- ctx.fill();
- ctx.closePath();
+	//sky
+	ctx.beginPath();
+	ctx.rect(0, 0, 300, 250);
+	ctx.fillStyle="#E0EEEE";
+	ctx.fill();
+	ctx.closePath();
  }
 
 function drawSun(){
