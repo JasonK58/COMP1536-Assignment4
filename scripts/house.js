@@ -224,6 +224,5 @@ smoke.prototype.update = function () {
 }
 		smokeImage.src = "http://fc05.deviantart.net/fs4/i/2004/193/1/c/Middle_Finger.gif";
 smokeImage.onload = function () {
-	
     render();
 }
