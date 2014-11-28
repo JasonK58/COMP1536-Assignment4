@@ -222,7 +222,7 @@ smoke.prototype.update = function () {
     this.x += this.velX;
     this.y += this.velY;
 }
-		smokeImage.src = "http://fc05.deviantart.net/fs4/i/2004/193/1/c/Middle_Finger.gif";
+smokeImage.src = "images/smoke.png";
 smokeImage.onload = function () {
     render();
 }
