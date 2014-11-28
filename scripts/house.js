@@ -4,9 +4,10 @@ var ctx = canvas.getContext("2d");
 var width = myCanvas.width;
 var height = myCanvas.height;
 var startX = 190;
-var startY = 90;
+var startY = 92;
 var radius = 8;
-
+var timesRun = 0;
+var checker = true;
 
 function drawSky() {
 //sky
@@ -18,11 +19,14 @@ function drawSky() {
  }
 
 function drawSun(){
-//sun
+	//Create a gradient to fill the sun.
 	var grade = ctx.createRadialGradient(50,50,40,50,50,0);
 	grade.addColorStop(0,"#E0EEEE");
 	grade.addColorStop(1,"yellow");
+	
+	//Fills the sun using the created gradient.
 	ctx.fillStyle= grade;
+	
 	ctx.beginPath();
 	ctx.arc(50, 50, 40, 0, 2 * Math.PI);
 	ctx.closePath();
@@ -153,33 +157,38 @@ function drawHouse() {
 	ctx.closePath();
 	
 }
-	var timesRun = 0;
 	
 function drawSmoke() {
-	
-	var startAngle = 0;
-	var endAngle = 2 * Math.PI;
-	
 	ctx.beginPath();
-	ctx.arc(startX, startY, radius, startAngle, endAngle);
-	ctx.fillStyle="grey";
+	ctx.arc(startX, startY, radius, 0, 2 * Math.PI);
+	ctx.fillStyle="#AAAAAA";
 	ctx.closePath();
 	ctx.fill();
-	radius += 5;
-
-	startY += -15;
+	
+	//Moves the smoke left or right to depending on the boolean value.
+	if (checker) {
+		startX += 5;
+		checker = false;
+	} else {
+		startX -= 10;
+		checker = true;
+	}
+	
+	radius += 3;
+	startY += -10;
 	timesRun++;
-	if (timesRun == 5) {
+	
+	/*Once the smoke function runs five times, it will reset 
+	everything and start again.*/
+	if (timesRun == 7) {
 		ctx.clearRect(0, 0, 300, 300);
 		drawSky();
 		drawSun();
 		drawGround();
 		drawHouse();
-		timesRun=0;
 		startX = 190;
-		startY = 90;
+		startY = 92;
 		radius = 8;
+		timesRun=0;
 	}
-	
-	
 }

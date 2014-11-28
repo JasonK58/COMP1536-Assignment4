@@ -13,10 +13,6 @@
 		<canvas id="myCanvas" width="300" height="300" style="border: 1px solid black;"></canvas>
 	</div>
 	<div id="body">
-		<!--name, student#, email, set
-		what you completed
-		what you didn't complete
-		challenges-->
 		<table>
 			<tr>
 				<td>Name:&nbsp;&nbsp;&nbsp;&nbsp;</td>
@@ -43,7 +39,7 @@
 			</tr>
 			<tr>
 				<td>E-mail:&nbsp;&nbsp;&nbsp;&nbsp;</td>
-				<td>daniyaer@gmail.com</td>
+				<td><A HREF="&#109;&#97;&#105;&#108;&#116;&#111;&#58;%64%61%6E%69%79%61%65%72%40%67%6D%61%69%6C%2E%63%6F%6D">Daniyaer@gmail.com</A></td>
 			</tr>
 		</table>
 		<hr />
@@ -51,7 +47,8 @@
 		<p>Tasks Not Completed: none</p>
 		<p>Major Challenges:
 			<ul>
-				<li>TBD</li>
+				<li>Making the smoke animate properly.</li>
+				<li>Learning how to draw.</li>
 			</ul>
 		</p>
 	</div>
@@ -62,12 +59,7 @@
 		drawGround();
 		drawHouse();
 		drawSmoke();
-		var myInterval = setInterval(function(){drawSmoke()}, 500);
-		//render();
-		//smoke();
-		//spawn();
-		//smokeImage.src = "images/smoke.png";
-
+		var myInterval = setInterval(function(){drawSmoke()}, 150);
 	</script>
 </body>
 </html>
