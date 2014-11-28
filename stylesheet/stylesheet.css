@@ -6,10 +6,17 @@ body {
 	background-size: cover;
 }
 
-header {
+header h1{
 	text-align: center;
 	text-decoration: underline;
 	color: white;
+}
+
+header p {
+	text-align: center;
+	color: white;
+	margin-top: -1%;
+	font-size: 110%;
 }
 
 #body table {
@@ -33,4 +40,8 @@ header {
 
 #body a {
 	color: white;
+}
+
+ul li {
+	font-size: 125%
 }
