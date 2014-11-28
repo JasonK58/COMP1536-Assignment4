@@ -7,40 +7,6 @@ var startX = 190;
 var startY = 90;
 var radius = 8;
 
-function smoke(x, y, index) {
-//smoke properties
-    this.x = x;
-    this.y = y;
-
-    this.size = 1;
-    this.startSize = 32;
-    this.endSize = 50;
-
-    this.angle = Math.random() * 359;
-
-    this.startLife = new Date().getTime();
-    this.lifeTime = 0;
-
-    this.velY = -1 - (Math.random()*0.5);
-    this.velX = Math.floor(Math.random() * (-6) + 3) / 10;
-}
-var parts = [],
-//array for smoke
-    minSpawnTime = 100,
-    lastTime = new Date().getTime(),
-    maxLifeTime = Math.min(5000, (myCanvas.height/(1.5*60)*1000)),
-    emitterX = 180,
-    emitterY = 70,
-    smokeImage = new Image();
-	
-	
-	function spawn() {
-	//generating smoke
-    if (new Date().getTime() > lastTime + minSpawnTime) {
-        lastTime = new Date().getTime();
-        parts.push(new smoke(emitterX, emitterY));
-    }
-}
 
 function drawSky() {
 //sky
@@ -216,51 +182,4 @@ function drawSmoke() {
 	}
 	
 	
-}
-
-
-function render() {
-//creating canvas images
-    var len = parts.length;
-    ctx.clearRect(0, 0, width, height);
-	drawSky();
-	drawGround();
-	drawSun();
-	drawHouse();
-    while (len--) {
-        if (parts[len].y < 0 || parts[len].lifeTime > maxLifeTime) {
-            parts.splice(len, 1);
-        } else {
-            parts[len].update();
-
-            ctx.save();
-            var offsetX = -parts[len].size/2,
-                offsetY = -parts[len].size/2;
-         
-            ctx.translate(parts[len].x-offsetX, parts[len].y-offsetY);
-            ctx.rotate(parts[len].angle / 180 * Math.PI);
-            ctx.globalAlpha  = parts[len].alpha;
-			drawSmoke();
-            //ctx.drawImage(drawSmoke(), offsetX,offsetY, parts[len].size, //parts[len].size);
-            ctx.restore();
-        }
-    }
-    spawn();
-    requestAnimationFrame(render);
-}
-
-smoke.prototype.update = function () {
-	//calculation of smoke generator
-    this.lifeTime = new Date().getTime() - this.startLife;
-    this.angle += 0.2;
-    
-    var lifePerc = ((this.lifeTime / maxLifeTime) * 100);
-
-    this.size = this.startSize + ((this.endSize - this.startSize) * lifePerc * .1);
-
-    this.alpha = 1 - (lifePerc * .01);
-    this.alpha = Math.max(this.alpha,0);
-    
-    this.x += this.velX;
-    this.y += this.velY;
 }
