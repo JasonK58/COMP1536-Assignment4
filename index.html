@@ -57,10 +57,16 @@
 	</div>
 	<script type="text/javascript" src="scripts/house.js"></script>
 	<script>
-		render();
-		smoke();
-		spawn();
-		smokeImage.src = "images/smoke.png";
+		drawSky();
+		drawSun();
+		drawGround();
+		drawHouse();
+		drawSmoke();
+		var myInterval = setInterval(function(){drawSmoke()}, 500);
+		//render();
+		//smoke();
+		//spawn();
+		//smokeImage.src = "images/smoke.png";
 
 	</script>
 </body>

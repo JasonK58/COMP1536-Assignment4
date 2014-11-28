@@ -3,6 +3,9 @@ var ctx = canvas.getContext("2d");
 
 var width = myCanvas.width;
 var height = myCanvas.height;
+var startX = 190;
+var startY = 90;
+var radius = 8;
 
 function smoke(x, y, index) {
 //smoke properties
@@ -184,6 +187,37 @@ function drawHouse() {
 	ctx.closePath();
 	
 }
+	var timesRun = 0;
+	
+function drawSmoke() {
+	
+	var startAngle = 0;
+	var endAngle = 2 * Math.PI;
+	
+	ctx.beginPath();
+	ctx.arc(startX, startY, radius, startAngle, endAngle);
+	ctx.fillStyle="grey";
+	ctx.closePath();
+	ctx.fill();
+	radius += 5;
+
+	startY += -15;
+	timesRun++;
+	if (timesRun == 5) {
+		ctx.clearRect(0, 0, 300, 300);
+		drawSky();
+		drawSun();
+		drawGround();
+		drawHouse();
+		timesRun=0;
+		startX = 190;
+		startY = 90;
+		radius = 8;
+	}
+	
+	
+}
+
 
 function render() {
 //creating canvas images
@@ -206,7 +240,8 @@ function render() {
             ctx.translate(parts[len].x-offsetX, parts[len].y-offsetY);
             ctx.rotate(parts[len].angle / 180 * Math.PI);
             ctx.globalAlpha  = parts[len].alpha;
-            ctx.drawImage(smokeImage, offsetX,offsetY, parts[len].size, parts[len].size);
+			drawSmoke();
+            //ctx.drawImage(drawSmoke(), offsetX,offsetY, parts[len].size, //parts[len].size);
             ctx.restore();
         }
     }
@@ -228,8 +263,4 @@ smoke.prototype.update = function () {
     
     this.x += this.velX;
     this.y += this.velY;
-}
-
-smokeImage.onload = function () {
-    render();
 }
